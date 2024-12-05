@@ -4,7 +4,7 @@ import { useMutation, useQuery } from 'convex/react';
 import { api } from '../../convex/_generated/api';
 
 export default function FreezeButton() {
-  const freeze = useMutation(api.testing.freeze);
+  const stop = useMutation(api.testing.stop);
   const resume = useMutation(api.testing.resume);
   const worldStatus = useQuery(api.world.defaultWorldStatus);
 
@@ -17,7 +17,7 @@ export default function FreezeButton() {
         if (isFrozen) {
           resume();
         } else {
-          freeze();
+          stop();
         }
       }}
       title={isFrozen ? 'Unfreeze' : 'Freeze'}
