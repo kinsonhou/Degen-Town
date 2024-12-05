@@ -1,5 +1,9 @@
 import { OPENAI_API_BASE, MODEL_NAME } from '../lib';
 
+export interface EmbeddingResponse {
+  embedding: number[];
+}
+
 export const LLM_CONFIG = {
   model: MODEL_NAME,
   temperature: 0.7,
@@ -93,9 +97,4 @@ export function assertApiKey() {
   if (!process.env.OPENAI_API_KEY) {
     throw new Error('Missing OPENAI_API_KEY environment variable');
   }
-}
-
-// 添加接口定义
-interface EmbeddingResponse {
-  embedding: number[];
 }
