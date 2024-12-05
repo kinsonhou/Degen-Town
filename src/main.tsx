@@ -9,10 +9,38 @@ import { ConvexProviderWithClerk } from 'convex/react-clerk';
 import { ConvexReactClient } from 'convex/react';
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
+const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ClerkProvider publishableKey={import.meta.env.VITE_CLERK_PUBLISHABLE_KEY}>
+    <ClerkProvider
+      publishableKey={clerkPubKey}
+      appearance={{
+        elements: {
+          avatarBox: {
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
+          },
+          userProfile: {
+            avatarBox: {
+              width: '80px',
+              height: '80px',
+            },
+          },
+          userButton: {
+            avatarBox: {
+              width: '40px',
+              height: '40px',
+            },
+          },
+        },
+        layout: {
+          socialButtonsPlacement: 'bottom',
+          socialButtonsVariant: 'iconButton',
+        },
+      }}
+    >
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
         <Home />
       </ConvexProviderWithClerk>
