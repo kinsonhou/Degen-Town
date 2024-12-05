@@ -4,6 +4,7 @@ export const LLM_CONFIG = {
   model: MODEL_NAME,
   temperature: 0.7,
   max_tokens: 1000,
+  embeddingDimension: 1536,
 };
 
 export interface LLMMessage {
@@ -15,10 +16,12 @@ export const chatCompletion = async ({
   messages,
   temperature = LLM_CONFIG.temperature,
   max_tokens = LLM_CONFIG.max_tokens,
+  stop,
 }: {
   messages: LLMMessage[];
   temperature?: number;
   max_tokens?: number;
+  stop?: string[];
 }) => {
   const response = await fetch(`${OPENAI_API_BASE}/chat/completions`, {
     method: 'POST',
