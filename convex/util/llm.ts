@@ -94,3 +94,8 @@ export function assertApiKey() {
     throw new Error('Missing OPENAI_API_KEY environment variable');
   }
 }
+
+// 添加接口定义
+interface EmbeddingResponse {
+  embedding: number[];
+}
