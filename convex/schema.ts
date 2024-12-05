@@ -24,4 +24,13 @@ export default defineSchema({
   ...agentTables,
   ...aiTownTables,
   ...engineTables,
+
+  memoryEmbeddings: defineTable({
+    playerId: v.string(),
+    embedding: v.array(v.float64()),
+  }).vectorIndex('embedding', {
+    vectorField: 'embedding',
+    dimensions: 1536,
+    filterFields: ['playerId'],
+  }),
 });
