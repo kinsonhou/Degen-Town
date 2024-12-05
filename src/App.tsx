@@ -3,7 +3,7 @@ import Game from './components/Game.tsx';
 import { ToastContainer } from 'react-toastify';
 import a16zImg from '../assets/a16z.png';
 import helpImg from '../assets/help.svg';
-import { UserButton } from '@clerk/clerk-react';
+import { UserButton, SignInButton, SignOutButton, useUser } from '@clerk/clerk-react';
 import { Authenticated, Unauthenticated } from 'convex/react';
 import LoginButton from './components/buttons/LoginButton.tsx';
 import { useState } from 'react';
@@ -16,6 +16,8 @@ import { MAX_HUMAN_PLAYERS } from '../convex/constants.ts';
 
 export default function Home() {
   const [helpModalOpen, setHelpModalOpen] = useState(false);
+  const { isSignedIn, user } = useUser();
+
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between font-body game-background">
       <ReactModal
@@ -59,11 +61,25 @@ export default function Home() {
       </ReactModal>
       <div className="p-6 sm:p-8 absolute top-0 right-0 z-10 text-2xl">
         <Authenticated>
-          <UserButton afterSignOutUrl="/ai-town" />
+          <UserButton
+            appearance={{
+              elements: {
+                avatarBox: {
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                },
+              },
+            }}
+          />
         </Authenticated>
 
         <Unauthenticated>
-          <LoginButton />
+          <SignInButton mode="modal">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Sign In
+            </button>
+          </SignInButton>
         </Unauthenticated>
       </div>
 
