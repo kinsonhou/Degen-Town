@@ -57,5 +57,5 @@
     "ts-node": "^10.9.1",
     "vite": "^4.4.9"
   },
-  "type": "commonjs"
+  "type": "module"
 }
