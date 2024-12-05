@@ -3,7 +3,7 @@ import { v } from 'convex/values';
 import { Id } from './_generated/dataModel';
 import { DatabaseReader, internalMutation, MutationCtx } from './_generated/server';
 import { generateAgentMessage } from './agent';
-import { Message } from './schema';
+import type { Message } from './types';
 
 export const agentGenerateMessage = internalMutation({
   args: { messages: v.array(v.any()) },
