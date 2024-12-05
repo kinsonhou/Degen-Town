@@ -1,13 +1,11 @@
 import { SignInButton } from '@clerk/clerk-react';
+import Button from './Button';
+import loginImg from '../../../assets/login.svg';
 
 export default function LoginButton() {
   return (
-    <SignInButton>
-      <button className="button text-white shadow-solid">
-        <div className="inline-block bg-clay-700">
-          <span>Log in</span>
-        </div>
-      </button>
+    <SignInButton mode="modal">
+      <Button imgUrl={loginImg}>Login</Button>
     </SignInButton>
   );
 }

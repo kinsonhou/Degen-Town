@@ -3,9 +3,9 @@ import Game from './components/Game.tsx';
 import { ToastContainer } from 'react-toastify';
 import a16zImg from '../assets/a16z.png';
 import helpImg from '../assets/help.svg';
-// import { UserButton } from '@clerk/clerk-react';
-// import { Authenticated, Unauthenticated } from 'convex/react';
-// import LoginButton from './components/buttons/LoginButton.tsx';
+import { UserButton } from '@clerk/clerk-react';
+import { Authenticated, Unauthenticated } from 'convex/react';
+import LoginButton from './components/buttons/LoginButton.tsx';
 import { useState } from 'react';
 import ReactModal from 'react-modal';
 import MusicPlayer from './components/buttons/MusicPlayer.tsx';
@@ -57,7 +57,7 @@ export default function Home() {
           </p>
         </div>
       </ReactModal>
-      {/*<div className="p-3 absolute top-0 right-0 z-10 text-2xl">
+      <div className="p-6 sm:p-8 absolute top-0 right-0 z-10 text-2xl">
         <Authenticated>
           <UserButton afterSignOutUrl="/ai-town" />
         </Authenticated>
@@ -65,7 +65,7 @@ export default function Home() {
         <Unauthenticated>
           <LoginButton />
         </Unauthenticated>
-      </div> */}
+      </div>
 
       <div className="w-full lg:h-screen min-h-screen relative isolate overflow-hidden lg:p-8 shadow-2xl flex flex-col justify-start">
         <h1 className="mx-auto text-4xl p-3 sm:text-8xl lg:text-9xl font-bold font-display leading-none tracking-wide game-title w-full text-left sm:text-center sm:w-auto">
@@ -74,17 +74,17 @@ export default function Home() {
 
         <div className="max-w-xs md:max-w-xl lg:max-w-none mx-auto my-4 text-center text-base sm:text-xl md:text-2xl text-white leading-tight shadow-solid">
           A virtual town where AI DEGENs live, chat and pump.
-          {/* <Unauthenticated>
+          <Unauthenticated>
             <div className="my-1.5 sm:my-0" />
             Log in to join the town
             <br className="block sm:hidden" /> and the conversation!
-          </Unauthenticated> */}
+          </Unauthenticated>
         </div>
 
         <Game />
 
-        <footer className="justify-end bottom-0 left-0 w-full flex items-center mt-4 gap-3 p-6 flex-wrap pointer-events-none">
-          <div className="flex gap-4 flex-grow pointer-events-none">
+        <footer className="justify-end bottom-0 left-0 w-full flex items-center mt-4 gap-3 p-6 flex-wrap">
+          <div className="flex gap-4 flex-grow">
             <FreezeButton />
             <MusicPlayer />
             <InteractButton />
@@ -93,7 +93,7 @@ export default function Home() {
             </Button>
           </div>
           <a href="https://a16z.com">
-            <img className="w-8 h-8 pointer-events-auto" src={a16zImg} alt="a16z" />
+            <img className="w-8 h-8" src={a16zImg} alt="a16z" />
           </a>
         </footer>
         <ToastContainer position="bottom-right" autoClose={2000} closeOnClick theme="dark" />

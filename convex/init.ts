@@ -37,6 +37,7 @@ const init = mutation({
     }
   },
 });
+
 export default init;
 
 async function getOrCreateDefaultWorld(ctx: MutationCtx) {

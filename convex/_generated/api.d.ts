@@ -16,6 +16,8 @@ import type {
 import type * as agent_conversation from "../agent/conversation.js";
 import type * as agent_embeddingsCache from "../agent/embeddingsCache.js";
 import type * as agent_memory from "../agent/memory.js";
+import type * as agent from "../agent.js";
+import type * as agentOperations from "../agentOperations.js";
 import type * as aiTown_agent from "../aiTown/agent.js";
 import type * as aiTown_agentDescription from "../aiTown/agentDescription.js";
 import type * as aiTown_agentInputs from "../aiTown/agentInputs.js";
@@ -40,6 +42,7 @@ import type * as engine_abstractGame from "../engine/abstractGame.js";
 import type * as engine_historicalObject from "../engine/historicalObject.js";
 import type * as http from "../http.js";
 import type * as init from "../init.js";
+import type * as lib from "../lib.js";
 import type * as messages from "../messages.js";
 import type * as music from "../music.js";
 import type * as testing from "../testing.js";
@@ -69,6 +72,8 @@ declare const fullApi: ApiFromModules<{
   "agent/conversation": typeof agent_conversation;
   "agent/embeddingsCache": typeof agent_embeddingsCache;
   "agent/memory": typeof agent_memory;
+  agent: typeof agent;
+  agentOperations: typeof agentOperations;
   "aiTown/agent": typeof aiTown_agent;
   "aiTown/agentDescription": typeof aiTown_agentDescription;
   "aiTown/agentInputs": typeof aiTown_agentInputs;
@@ -93,6 +98,7 @@ declare const fullApi: ApiFromModules<{
   "engine/historicalObject": typeof engine_historicalObject;
   http: typeof http;
   init: typeof init;
+  lib: typeof lib;
   messages: typeof messages;
   music: typeof music;
   testing: typeof testing;

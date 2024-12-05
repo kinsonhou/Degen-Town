@@ -1,0 +1,12 @@
+{
+  "authInfo": {
+    "enableAuth": true,
+    "providers": [
+      {
+        "name": "clerk",
+        "issuer": "https://degenai.life",
+        "jwksUrl": "https://degenai.life/.well-known/jwks.json"
+      }
+    ]
+  }
+} 
