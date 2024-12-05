@@ -20,9 +20,9 @@ export default function FreezeButton() {
           freeze();
         }
       }}
-      title={isFrozen ? 'Resume' : 'Freeze'}
+      title={isFrozen ? 'Unfreeze' : 'Freeze'}
     >
-      {isFrozen ? 'Resume' : 'Freeze'}
+      {isFrozen ? 'Unfreeze' : 'Freeze'}
     </Button>
   );
 }
