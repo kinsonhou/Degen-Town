@@ -73,7 +73,10 @@ export async function fetchEmbeddingBatch(texts: string[]) {
     throw new Error(`OpenAI API Error: ${result.error?.message || 'Unknown error'}`);
   }
 
-  if (!Array.isArray(result.data) || !result.data.every((d) => Array.isArray(d.embedding))) {
+  if (
+    !Array.isArray(result.data) ||
+    !result.data.every((d: EmbeddingResponse) => Array.isArray(d.embedding))
+  ) {
     console.error('Unexpected API response format:', result);
     throw new Error('Unexpected embedding format from OpenAI API');
   }
