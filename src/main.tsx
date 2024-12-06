@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ClerkProvider, useAuth } from '@clerk/clerk-react';
 import { ConvexProviderWithClerk } from 'convex/react-clerk';
 import { ConvexReactClient } from 'convex/react';
+import { Analytics } from '@vercel/analytics/react';
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -43,6 +44,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     >
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
         <Home />
+        <Analytics />
       </ConvexProviderWithClerk>
     </ClerkProvider>
   </React.StrictMode>,
